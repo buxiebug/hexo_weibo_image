@@ -1,3 +1,5 @@
+Linux + hexo + python + github运行环境可以直接clone工程到本地,将工程中的文件拷贝到hexo博客的根目录,例如/home/hexo/blog下,修改expect.sh中的用户名密码为自己的github的用户名密码,随后运行python deploy.py,输入新浪微博用户名和密码就可以将博客一键部署到github,并将博文中的图片替换为新浪图床的图片,示例网站:http://trytofix.com. 其他环境的用户,可根据下面对每个文件的解释,各取所需.
+
 ## weibo_util.py 用来模拟登陆微博,将本地图片上传到新浪图床,并获取图床的链接.
 ``` python
 if __name__ == '__main__':
@@ -32,3 +34,4 @@ set pass yourpassword
 > 为了避免每次部署时,都生成新的图床url(浪费资源可耻,感谢新浪无私的没有做防盗链限制),在部署时,将图片做md5计算,将md5与新浪图床url存入map,最后使用json持久化到文件中(image.db),每次部署先查看md5是否存在map中,如果存在,则直接取md5对应的value值,否则,获取图床地址并存入image.db.
 
 ### image.db存放图片md5与图床url对应关系的json数据库
+
