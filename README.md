@@ -1,4 +1,5 @@
-Linux + hexo + python + github运行环境可以直接clone工程到本地,将工程中的文件拷贝到hexo博客的根目录,例如/home/hexo/blog下,修改expect.sh中的用户名密码为自己的github的用户名密码,随后运行python deploy.py,输入新浪微博用户名和密码就可以将博客一键部署到github,并将博文中的图片替换为新浪图床的图片,示例网站:http://trytofix.com. 其他环境的用户,可根据下面对每个文件的解释,各取所需.
+> Linux + hexo + python + github运行环境可以直接clone工程到本地,将工程中的文件拷贝到hexo博客的根目录,例如/home/hexo/blog下,修改expect.sh中的用户名密码为自己的github的用户名密码,随后运行python deploy.py,输入新浪微博用户名和密码就可以将博客一键部署到github,并将博文中的图片替换为新浪图床的图片,示例网站:http://trytofix.com. 其他环境的用户,可根据下面对每个文件的解释,各取所需.
+> Linux 需要安装expect, sudo apt-get install expect
 
 ## weibo_util.py 用来模拟登陆微博,将本地图片上传到新浪图床,并获取图床的链接.
 ``` python
