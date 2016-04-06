@@ -2,7 +2,7 @@
 
 > Linux 需要安装expect, `sudo apt-get install expect`
 
-## weibo_util.py 用来模拟登陆微博,将本地图片上传到新浪图床,并获取图床的链接.
+### weibo_util.py 用来模拟登陆微博,将本地图片上传到新浪图床,并获取图床的链接.
 ``` python
 if __name__ == '__main__':
     print get_image('/home/q/hexo/blog/source/img/angular-remove-table-item.jpg')
