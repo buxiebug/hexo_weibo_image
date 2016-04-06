@@ -37,5 +37,5 @@ set pass yourpassword
 
 ### image.db存放图片md5与图床url对应关系的json数据库
 
-> 更多内容请访问:http://trytofix.com
+> 更多内容请访问:http://trytofix.com/2016/04/06/hexo%E4%BD%BF%E7%94%A8%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/
 
