@@ -20,7 +20,6 @@ if db_str.strip() == "":
     db_str = "{}"
 image_db_dict = json.loads(db_str)
 
-os.system("rm -rf backup/_posts/")
 os.system("cp -rf source/_posts backup/")
 for i in os.listdir(base_dir + '/_posts'):
     path = base_dir + '/_posts/' + i
@@ -56,7 +55,6 @@ with open(image_db, 'w') as f:
 
 os.system('sh install.sh')
 print "copy begin"
-os.system('rm -rf source/_posts')
 os.system('cp -rf backup/_posts source/')
 print "copy done"
 os.chdir("source/_posts")
