@@ -10,6 +10,7 @@ import urllib
 import urllib2
 import binascii
 import base64
+from optparse import OptionParser
 
 cookie_file = 'cookie.txt'
 
@@ -95,26 +96,37 @@ def request_image_url(image_path):
     return 'http://ww3.sinaimg.cn/large/%s' % image_id
 
 
-def get_image(image_path):
+def get_image(image_path, username=None, password=None):
     url = ''
     try:
         url = request_image_url(image_path)
     except:
         try:
-            username = raw_input("输入新浪微博用户名：")
-            password = raw_input("输入新浪微博密码：")
+            if not (username and password):
+                username = raw_input("输入新浪微博用户名：")
+                password = raw_input("输入新浪微博密码：")
             nonce, pubkey, servertime, rsakv = pre_login()
             form_data = generate_form_data(nonce, pubkey, servertime, rsakv, username, password)
             login(form_data)
             url = request_image_url(image_path)
-        except:
+        except Exception, e:
             print "登录失败,程序退出"
             exit()
     return url
 
 
 if __name__ == '__main__':
-    # print get_image('/home/brianyang/Desktop/imagekakaxi.jpg')
-    print get_image('/home/q/hexo/blog/source/img/angular-remove-table-item.jpg')
+    usage = "usage: %prog [options] arg"
+    parser = OptionParser(usage)
+    parser.add_option("-f", "--file", dest='filepath', help='image file path')
+    parser.add_option("-u", "--username", dest="username", help="weibo username")
+    parser.add_option("-p", "--password", dest="password", help="weibo password")
+    (options, args) = parser.parse_args()
+    filename = options.filepath
+    username = options.username
+    password = options.password
+    if not filename:
+        parser.error("Incorrect number of arguments")
+    print get_image(filename, username, password)
 
 
