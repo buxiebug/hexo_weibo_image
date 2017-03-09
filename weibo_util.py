@@ -90,7 +90,7 @@ def request_image_url(image_path):
     b = base64.b64encode(file(image_path).read())
     data = urllib.urlencode({'b64_data': b})
     result = opener.open(image_url, data).read()
-    result = re.sub(r"<meta.*</script>", "", result)
+    result = re.sub(r"<meta.*</script>", "", result, flags=re.S)
     image_result = json.loads(result)
     image_id = image_result.get('data').get('pics').get('pic_1').get('pid')
     return 'http://ww3.sinaimg.cn/large/%s' % image_id
